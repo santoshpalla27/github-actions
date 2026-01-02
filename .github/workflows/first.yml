@@ -7,7 +7,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
-              run: echo "my first action" >> README.md
+              uses: actions/checkout@v6
 
             - name: list files in the directory
               run: ls
