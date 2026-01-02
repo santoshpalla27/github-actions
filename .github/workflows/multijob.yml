@@ -10,7 +10,7 @@ jobs:
               uses: actions/checkout@v6
 
             - name: Run shell script
-              run: ./hello.sh
+              run: chmod +x ./hello.sh && ./hello.sh
 
     test:
         runs-on: ubuntu-latest
