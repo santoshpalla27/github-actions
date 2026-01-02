@@ -1,0 +1,31 @@
+name: env-vars-example
+
+on: push
+
+env:
+    WORKFLOW_ENV: workflow
+
+jobs:
+    name:
+        runs-on: ubuntu-latest
+
+        env:
+            JOB_ENV: job
+
+        steps:
+            - name: job env
+              run: echo "job env is ${{ env.JOB_ENV }}"
+
+            - name: step env
+              env:
+                  STEP_ENV: step
+              run: echo "step env is ${{ env.STEP_ENV }}"
+
+            - name: workflow env
+              run: echo "workflow env is ${{ env.WORKFLOW_ENV }}"
+
+            - name: env vars
+              run: |
+                  echo "job env is $JOB_ENV"
+                  echo "step env is $STEP_ENV"
+                  echo "workflow env is $WORKFLOW_ENV"
