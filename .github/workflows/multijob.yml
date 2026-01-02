@@ -6,18 +6,26 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v6
+            - name: create file
+              run: touch README.md
 
             - name: Run shell script
-              run: chmod +x ./hello.sh && ./hello.sh
+              run: echo "Hello World" > README.md
+
+            - name: upload artifact
+              uses: actions/upload-artifact@v6
+              with:
+                  name: build
+                  path: README.md
 
     test:
         needs: build
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
-              uses: actions/checkout@v6
+              uses: actions/download-artifact@v6
+              with:
+                  name: build
 
             - name: Run shell script
               run: cat README.md
