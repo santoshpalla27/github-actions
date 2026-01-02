@@ -1,0 +1,16 @@
+name: first workflow
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              run: echo "my first action"
+
+            - name: list files in the directory
+              run: ls
+
+            - name: read
+              run: cat README.md

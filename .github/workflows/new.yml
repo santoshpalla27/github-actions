@@ -1,0 +1,21 @@
+# name of the workflow
+name: first workflow
+
+# events that trigger the workflow
+on: [push]
+
+# jobs to run
+jobs:
+    # job name
+    build:
+        # environment where the job will run
+        runs-on: ubuntu-latest
+        # steps to run
+        steps:
+            # step name
+            - name: Checkout code # optional
+              uses: actions/checkout@v2 # action to checkout code
+
+            # step name
+            - name: Run first action # optional
+              uses: actions/first-action@main # action to run first action
